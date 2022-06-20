@@ -1,0 +1,166 @@
+# TC001 – Product Subscription
+
+**Environment:** Local
+
+**Test type:** Feature
+
+**Feature/Working area:** Product Subscription
+
+**Tags/Group:** @Regression
+
+**Test case objective:** Validate the product price for a full special support plan for 6
+months simulation
+
+**Preconditions:**
+
+* None
+
+**Target:**
+
+| Browser               |
+|:----------------------|
+| **Browser type**: Google Chrome |
+
+### Actions
+
+#### 1. Calculate the price of a full special support plan for 6 months
+
+* **Expected Result:** Price is 2249.10$
+* **Steps:**
+    <ol>
+        <li>Select type "Special"</li>
+        <li>Select support plan "Full"</li>
+        <li>Choose a duration of 6 months</li>
+        <li>Click the "Calculate" button</li>
+    </ol>
+
+### Test case data
+
+| Item                  | Value      |
+|:----------------------|:-----------|
+| URL                   | https://qa-automation-challenge.github.io/sandbox/ |
+
+# TC002 – Add user with job
+
+**Environment:** Local
+
+**Test type:** Feature
+
+**Feature/Working area:** Users
+
+**Tags/Group:** @Regression
+
+**Test case objective:** Validate that it is possible to add a new user with a job
+
+**Preconditions:**
+
+* None
+
+**Target:**
+
+| Web Services          |
+|:----------------------|
+| **REST** |
+
+### Actions
+
+#### 1. Add a new user with job
+
+* **Expected Result:** The user and job was created with status code 201
+* **Steps:**
+    <ol>
+        <li>Access the API</li>
+        <li>Post a request with user and job</li>
+    </ol>
+
+### Test case data
+
+| Item                  | Value      |
+|:----------------------|:-----------|
+| API                   | https://reqres.in/api/users |
+| User                  | Toy |
+| Job                   | singer |
+
+# TC003 – Delete user
+
+**Environment:** Local
+
+**Test type:** Feature
+
+**Feature/Working area:** Users
+
+**Tags/Group:** @Regression
+
+**Test case objective:** Validate that it is possible to delete a user
+
+**Preconditions:**
+
+* TC002 was previously executed wih success
+
+**Target:**
+
+| Web Services          |
+|:----------------------|
+| **REST** |
+
+### Actions
+
+#### 1. Delete an user
+
+* **Expected Result:** The user was deleted
+* **Steps:**
+    <ol>
+        <li>Access the API</li>
+        <li>Delete a user</li>
+    </ol>
+
+### Test case data
+
+| Item                  | Value      |
+|:----------------------|:-----------|
+| API                   | https://reqres.in/api/users/${user} |
+| User                  | 2 |
+ 40
+acceptanceCriteria/TC004.md
+@@ -0,0 +1,40 @@
+
+# TC004 – Register new user without password
+
+**Environment:** Local
+
+**Test type:** Feature
+
+**Feature/Working area:** Users
+
+**Tags/Group:** @Regression
+
+**Test case objective:** Validate that is not possible to submit a register without
+password
+
+**Preconditions:**
+
+* None
+
+**Target:**
+
+| Web Services          |
+|:----------------------|
+| **REST** |
+
+### Actions
+
+#### 1. Submit a new register without password
+
+* **Expected Result:** The register is not created, and the status code is 400
+* **Steps:**
+    <ol>
+        <li>Access the API</li>
+        <li>Post a request with a new register without password</li>
+    </ol>
+
+### Test case data
+
+| Item                  | Value      |
+|:----------------------|:-----------|
+| API                   | https://reqres.in/api/register |
+| E-mail                 | challenge@automation.com |
